@@ -9,15 +9,13 @@ const newFormHandler = async function(event) {
             title,
             post_url
         }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
-        alert(response.statusText);
+        alert('Failed to create new post');
     }
 }
-document.querySelector('new-post-form').addEventListener('submit', newFormHandler);
+document.querySelector('#new-post-form').addEventListener('submit', newFormHandler);
