@@ -9,9 +9,7 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'title',
-            'created_on',
         ],
-        order: [['created_on', 'DESC']],
         include: [
             {
                 model: Comment,
@@ -20,7 +18,6 @@ router.get('/', (req, res) => {
                     'comment_body',
                     'post_id',
                     'user_id',
-                    'created_on'
                 ],
                 include: {
                     model: User,
@@ -48,7 +45,6 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'title',
-            'created_on',
         ],
         include: [
             {
@@ -57,7 +53,6 @@ router.get('/:id', (req, res) => {
                     'id',
                     'comment_body',
                     'user_id',
-                    'created_on',
                 ],
                 include: {
                     model: User,
@@ -85,7 +80,7 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
-        post_url: req.body.post_url,
+        post_body: req.body.post_body,
         user_id: req.session.user_id
     })
     .then(postData => res.json(postData))

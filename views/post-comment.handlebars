@@ -2,7 +2,7 @@
     <article class="card">
         <div class="card-header">
             <h2>{{post.title}}</h2>
-            <span>Posted by {{post.User.username}} on {{format_date post.created_on}}</span>
+            <span>Posted by {{post.User.username}} on {{format_date post.createdAt}}</span>
         </div>
         <div class="card-body">
             {{post.body}}
@@ -19,7 +19,7 @@
                 {{body}}
             </p>
             <p>
-                {{User.username}} • {{format_date created_on}}
+                {{User.username}} • {{format_date createdAt}}
             </p>
         </div>
         {{/each}}

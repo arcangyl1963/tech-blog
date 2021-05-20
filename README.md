@@ -1,10 +1,10 @@
-# E-commerce Inventory Backend System
+# Tech Blog Web App
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)<br>
 
 ## Description:<br>
 
-The E-commerce Inventory Backend System is an ExpressJS and MySQL database server backend application for managing inventory and product data for an online store environment. MySQL stores the data tables for categories and products as well as the tag relationships to those products.<br>
+The Tech Blog Web App is an ExpressJS and MySQL database server backend application for managing inventory and product data for an online store environment. MySQL stores the data tables for categories and products as well as the tag relationships to those products.<br>
 
 The applicaton allows the user to create, update and delete categories, products and tags while establishing the associated relationships between the table records where applicable. The system stores product names, prices, stock units available, and applied tags or keywords.<br>
 
