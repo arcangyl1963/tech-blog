@@ -1,0 +1,20 @@
+<article>
+    <div class="blog-post card">
+        <div class="card-header">
+            <h2>Edit Post</h2>
+        </div>
+        <form id="edit-post-form" class="card-body">
+            <input type="hidden" name="post-id" value="{{post.id}}" />
+
+            <label class="form-label" for="post-title">Title</label>
+            <input class="form-input" type="text" name="post-title" value="{{post.title}}" />
+
+            <label class="form-label" for="post-body">Post Content</label>
+            <textarea class="form-input" name="post-body">{{post.body}}</textarea>
+            <button type="submit" class="btn-primary">Update Post</button>
+            <button type="button" class="delete-btn btn-danger">Delete Post</button>
+        </form>
+
+    </div>
+</article>
+<script src="../public/js/edit-delete.js"></script>
