@@ -1,10 +1,10 @@
-const registerFormHandler = function(event) {
+const registrationFormHandler = async function(event) {
     event.preventDefault();
 
     const userName = document.querySelector('#username-register');
     const passWord = document.querySelector('#password-register');
 
-    const response = await fetch('/api/user', {
+    const response = await fetch('api/users', {
         method: 'POST',
         body: JSON.stringify({
             username: userName.value,
@@ -13,9 +13,9 @@ const registerFormHandler = function(event) {
         headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-        document.location('/dashboard');
+        document.location.replace('/dashboard');
     } else {
         alert('Registration failed');
     }
 };
-document.querySelector('#registration-form').addEventListener('submit', registerFormHandler);
+document.querySelector('#registration-form').addEventListener('submit', registrationFormHandler);
