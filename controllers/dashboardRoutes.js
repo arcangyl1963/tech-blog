@@ -6,7 +6,7 @@ router.get('/', withAuth, async (req, res) => {
   try {
   const postContent = await Post.findAll({
     where: {
-      user_id: req.session.user_id,
+      userId: req.session.userId,
     },
   });
     const posts = postContent.map((post) => post.get({ plain: true }));
@@ -27,10 +27,10 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const postContent = await Post.findbyPk(req.params.id);
     if (postContent) {
-      const posts = postContent.get({ plain: true });
+      const post = postContent.get({ plain: true });
       res.render('editPost', {
         layout: 'dashboard',
-        posts,
+        post,
       });
     } else {
       res.status(404).end();

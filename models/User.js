@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 //create the user model
 class User extends Model {
     // check the user's password at entry
-    checkPw(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
+    checkPw(loginPW) {
+        return bcrypt.compareSync(loginPW, this.password);
     }
 }
 User.init(
@@ -18,7 +18,7 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         password: {
             type: DataTypes.STRING,

@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
         password: req.body.password
     });
     req.session.save(() => {
-        req.session.user_id = createUser.id;
+        req.session.userId = createUser.id;
         req.session.username = createUser.username;
         req.session.loggedIn = true;
         res.json(createUser);
@@ -19,23 +19,23 @@ router.post('/', async (req, res) => {
 });
 router.post('/login', async (req, res) => {
     try {
-    const curUser = User.findOne({
+    const user = User.findOne({
         where: {
             username: req.body.username,
         },
     });
 
-        if (!curUser) {
+        if (!user) {
             res.status(400).json({ message: 'No matching user account found.' });
             return;
         }
-        const validPW = curUser.checkPW(req.body.password);
+        const validPW = user.checkPW(req.body.password);
         if (!validPW) {
             res.status(400).json({ message: 'The password entered does not match. Please try again.' });
             return;
         }
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.userId = userData.id;
             req.session.username = userData.username;
             req.session.loggedIn = true;
             res.json({ user: userData, message: 'You have successfully logged in!' });
