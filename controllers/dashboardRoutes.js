@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
         posts,
        });
       } catch (err) {
-      res.redirect('login');
+      res.redirect('/login');
     }
   });
 router.get('/new', withAuth, (req, res) => {
@@ -25,7 +25,7 @@ router.get('/new', withAuth, (req, res) => {
 });
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const postContent = await Post.findbyPk(req.params.id);
+    const postContent = await Post.findByPk(req.params.id);
     if (postContent) {
       const post = postContent.get({ plain: true });
       res.render('editPost', {
@@ -36,7 +36,8 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       res.status(404).end();
     }
   } catch (err)  {
-      res.redirect('login');
+    console.log(err);
+      res.redirect('/login');
   }
 });
 module.exports = router;
