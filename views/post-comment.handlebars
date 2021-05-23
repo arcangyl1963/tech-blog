@@ -8,13 +8,13 @@
             {{post.body}}
         </div>
     </article>
-    {{#if post.Comments}}
+    {{#if post.Comment}}
     <div class="card">
         <div class="card-header">
             <h2>Comments</h2>
         </div>
         <div class="card-body">
-            {{#each post.Comments}}
+            {{#each post.Comment}}
             <p>
                 {{body}}
             </p>

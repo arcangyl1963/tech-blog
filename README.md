@@ -1,21 +1,25 @@
-# Tech Blog Web App
+# Third Triad Mojo Tech Blog
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)<br>
 
 ## Description:<br>
 
-The Tech Blog Web App is an ExpressJS and MySQL database server backend application for managing inventory and product data for an online store environment. MySQL stores the data tables for categories and products as well as the tag relationships to those products.<br>
+The Third Triad Mojo Tech Blog is a CMS-style blog where users can register and enter posts related to technology and related information. It uses the Handlebars Node package to generate the blog site views pages for it frontend and a MySQL database to store entered data coupled with the Sequelize Node package to create the queries to insert into and retrieve the data from the database tables.<br>
 
-The applicaton allows the user to create, update and delete categories, products and tags while establishing the associated relationships between the table records where applicable. The system stores product names, prices, stock units available, and applied tags or keywords.<br>
 
-The E-commerce Inventory Backend System utilizes the following technologies:
+The Third Triad Mojo Tech Blog utilizes the following technologies:
   * JavaScript
   * NODE.JS
   * NPM packages:
     * Sequelize
+    * connect-session-sequelize
     * MySQL2
     * DOTENV
     * Express
+    * Express-session
+    * Express-handlebars
+    * Handlebars
+    * Bcrypt
 
 ---
 
@@ -38,25 +42,26 @@ The E-commerce Inventory Backend System utilizes the following technologies:
 
 ## Installation:<br>
 
-My files can be accessed in the repository [HERE](https://github.com/arcangyl1963/ecommerce-inventory-backend-system)<br>
+My files can be accessed in the repository [HERE](https://github.com/arcangyl1963/third-triad-mojo-tech-blog)<br>
 
 The image below shows the repository where my project files are located:
 
-![E-commerce Inventory Backend System Repository](./images/ecommerce_repo.png)<br>
+![Third Triad Mojo Tech Blog Repo](./images/TTMBlog_repo.png)<br>
 
 
 Begin setting up your local repository by cloning the repo from the link above or by downloading the files to your local drive.<br>
 
-The repository will contain all of the files needed to run the application:<br>
+The repository will contain all of the files needed to run the application and follows the MVC paradigm for directory structure:<br>
 
 * A 'config' directory containing the database connection script.
+* A 'controllers' containing the route scripts for API calls and for the views.
 * A 'db' directory containing the schema for creating the database.
-* A 'seeds' directory that houses the seed scripts to populate the database with tables of data.
-* A 'models' directory containing the model classes for the categories, products, and product tags.
-* A 'routes' directory that contains the API routes for fetching, creating, updating and deleting the categories, products, and tags.
+* A 'public' directory that houses the javascripts and the CSS stylesheet.
+* A 'models' directory containing the model classes for the Users, Posts, and Comments.
+* A 'utils' directory that the authentication script for the user login feature and a helpers script used to manage the date formats.
 * An 'images' directory containing the image files for the README document.
 * A package.json file that contains the package dependencies required for the application to run and the application script information.
-* An server.js script file that is invoked in NodeJS to run the server application.
+* A server.js script file that is invoked in NodeJS to run the server backend which serves the blog site.
 
 Next proceed by creating the database using the MySQl CLI (or you may use a GUI software application such as MySQL Workbench or Sequel Pro):
 
@@ -73,8 +78,8 @@ Next proceed by creating the database using the MySQl CLI (or you may use a GUI 
   ~~~
 For example, to remove the database if it exists and create a new database you would paste this:
 
-mysql> DROP DATABASE IF EXISTS ecommerce_db;
-CREATE DATABASE ecommerce_db;
+mysql> DROP DATABASE IF EXISTS tech_blog_db;
+CREATE DATABASE tech_blog__db;
 ~~~
 <br>
 
@@ -101,44 +106,10 @@ To run the application locally type the following into Terminal or the command-l
 node server.js
 ~~~
 
-The server application will launch and you will see 'App listening on port 3001!' when the appliction lauches successfully.
+The server application will launch and you will see 'App listening on port 3001!' when the appliction lauches successfully. The database tables will be created based on the models provided. Those tables will be populated as users register, submit post entries and post comments.
 
-![E-commerce Inventory Backend System running app Terminal screen](./images/ecommerce_serverapplaunchscreen.png)<br>
-
-Please view the walk-through video demonstrating the CRUD functions on each of the tables for categories, products, and tags. The video can be viewed [here](https://youtu.be/qLgyzgpITE8).<br>
-
-## Postman GET, POST, PUT Tests:<br>
-
-Find all categories:<br>
-
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_findAllCat.png)<br>
-
-Find one category:<br>
-
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_findOneCat.png)<br>
-
-Find all products:<br>
-
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_findAllProds.png)<br>
-
-Find one product:<br>
-
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_findOneProd.png)<br>
-
-Create (POST) a category:<br>
-
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_POST-Cat.png)<br>
-
-Create (POST) a product:<br>
-
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_POST-Prod.png)<br>
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_POST-Prod-success.png)<br>
-
-Update (PUT) a product:<br>
-
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_PUT-Prod.png)<br>
-![E-commerce Inventory Backend System Postman tests](./images/ecommerce_PM_PUT-Prod-success.png)<br>
-
+The blog site can be accessed from this Heroku Deployment link:
+(Link to be added once all functionality is completed)
 
 ---
 
