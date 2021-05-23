@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const {  User } = require('../../models');
 // create a user
 router.post('/', async (req, res) => {
@@ -29,19 +30,23 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: 'No matching user account found.' });
             return;
         }
-        const validPW = user.checkPW(req.body.password);
-        if (!validPW) {
+        let checkPass = (loginPW) => {
+            bcrypt.compareSync(loginPW, req.body.password);
+            return checkPass;
+        }
+        // const validPW = user.checkPassword(req.body.password);
+        if (checkPass = false) {
             res.status(400).json({ message: 'The password entered does not match. Please try again.' });
             return;
-        }
+        } else if (checkPass = true)
         req.session.save(() => {
-            req.session.userId = userData.id;
-            req.session.username = userData.username;
+            req.session.userId = user.id;
+            req.session.username = user.username;
             req.session.loggedIn = true;
-            res.json({ user: userData, message: 'You have successfully logged in!' });
+            res.json({ user: user, message: 'You have successfully logged in!' });
         });
     } catch (err) {
-        res.status(400).json({ message: 'No matching user account found.'});
+        res.status(400).json({ message: 'No user account found.'});
     }
 });
 

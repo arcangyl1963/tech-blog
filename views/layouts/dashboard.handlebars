@@ -31,13 +31,14 @@
         </div>
     </nav>
     <header class="jumbotron">
-        <h1 class="title-banner">Your Mojo Dashboard</h1>
+        <h1 class="title-banner"><a href="/dashboard">Your Mojo Dashboard</a></h1>
     </header>
-    <main class="col-md-10">
+    <main class="col-auto">
+        {{!-- {{{title}}} --}}
         {{{body}}}
     </main>
     <footer class="footer row justify-center">
-        <a href="/dashboard/new">Add New Post</a>
+        <a href="/dashboard/new">➕ New Post</a>
     </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
