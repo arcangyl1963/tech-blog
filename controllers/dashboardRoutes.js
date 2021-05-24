@@ -15,6 +15,7 @@ router.get('/', withAuth, async (req, res) => {
         posts,
        });
       } catch (err) {
+        alert(err);
       res.redirect('/login');
     }
   });

@@ -13,6 +13,7 @@ const loginFormHandler = async function (event) {
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
+    // alert('You have successfully logged in!')
     document.location.replace('/dashboard');
   } else {
     alert('Login failed');
