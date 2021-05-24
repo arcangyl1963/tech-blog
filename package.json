@@ -1,5 +1,5 @@
 {
-  "name": "tech-blog",
+  "name": "third-triad-mojo-tech-blog",
   "version": "1.0.0",
   "description": "Model View Controller - CMS style blog system",
   "main": "server.js",
