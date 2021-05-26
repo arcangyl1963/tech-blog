@@ -95,7 +95,7 @@ This will install any package dependencies defined in the package.json file.<br>
 
 If you do not have MySQL installed on your system, you will need to install it as well. Download the appropriate installer for your operating system from [here](https://dev.mysql.com/downloads/installer/) and follow the instructions provided by the installer.<br>
 
-Additionally, you will need to create a .env file with your MySQL user and password information. Use the .envEXAMPLE file as a guide.<br> 
+Additionally, you will need to create a .env file with your MySQL user and password information. Use the dotenvEXAMPLE file as a guide.<br> 
 
 ---
 
@@ -106,7 +106,16 @@ To run the application locally type the following into Terminal or the command-l
 node server.js
 ~~~
 
-The server application will launch and you will see 'App listening on port 3001!' when the appliction lauches successfully. The database tables will be created based on the models provided. Those tables will be populated as users register, submit post entries and post comments.
+The server application will launch and you will see 'App listening on port 3001!' as well as the Sequelize queries inserting the tables into the database.
+Enter https://localhost:3001/ into the address field of your web browser.<br>
+
+You will be presented with the home screen.
+
+![Third Triad Mojo Tech Blog Home screen](./images/TTMBlog_home.png)<br>
+
+If this is the first time launching the app, you will need to register as a user by clicking 'New User Registration' in the navbar.
+
+![Third Triad Mojo Tech Blog New User](./)<br>
 
 The blog site can be accessed from this Heroku Deployment link:
 (Link to be added once all functionality is completed)

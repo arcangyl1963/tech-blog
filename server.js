@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const expressHBs = require('express-handlebars');
 const helpers = require('./utils/helpers');
+const Sequelize = require('sequelize');
 
 // const routes = require('./controllers/');
 const app = express();
@@ -11,6 +12,23 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+sequelize.define("Session", {
+  sid: {
+    type: Sequelize.STRING,
+    primaryKey: true,
+  },
+  userId: Sequelize.STRING,
+  expires: Sequelize.DATE,
+  data: Sequelize.TEXT,
+});
+
+function extendDefaultFields(defaults, session) {
+  return {
+    data: defaults.data,
+    expires: defaults.expires,
+    userId: session.userId,
+  };
+}
 const sess = {
   secret: 'MojoRising',
   cookie: {},

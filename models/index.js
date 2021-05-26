@@ -1,6 +1,7 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
+const { Session } = require('express-session');
 
 Post.belongsTo(User, {
   foreignKey: 'userId',

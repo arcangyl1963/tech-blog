@@ -4,6 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
+   
   const postContent = await Post.findAll({
     where: {
       userId: req.session.userId,
@@ -15,7 +16,7 @@ router.get('/', withAuth, async (req, res) => {
         posts,
        });
       } catch (err) {
-        alert(err);
+        console.log(err);
       res.redirect('/login');
     }
   });
