@@ -1,4 +1,4 @@
-const { request } = require("express");
+// const { request } = require("express");
 
 const withAuth = (req, res, next) => {
     if (!req.session.userId) {

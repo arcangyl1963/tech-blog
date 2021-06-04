@@ -1,12 +1,11 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const {  User } = require('../../models');
 // create a user
 router.post('/', async (req, res) => {
     try{
     const createUser = await User.create({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
     });
     req.session.save(() => {
         req.session.userId = createUser.id;
@@ -20,7 +19,7 @@ router.post('/', async (req, res) => {
 });
 router.post('/login', async (req, res) => {
     try {
-    const user = User.findOne({
+    const user = await User.findOne({
         where: {
             username: req.body.username,
         },
@@ -30,23 +29,20 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: 'No matching user account found.' });
             return;
         }
-        let checkPass = (loginPW) => {
-            bcrypt.compareSync(loginPW, req.body.password);
-            return checkPass;
-        }
-        // const validPW = user.checkPassword(req.body.password);
-        if (checkPass = false) {
-            res.status(400).json({ message: 'The password entered does not match. Please try again.' });
+        const validPass = (await user).checkPass(req.body.password);
+
+        if (!validPass) {
+            res.status(400).json({ message: 'No matching user account found.'});
             return;
-        } else if (checkPass = true)
+        }
         req.session.save(() => {
             req.session.userId = user.id;
             req.session.username = user.username;
             req.session.loggedIn = true;
-            res.status(200).json({ user: user, message: 'You have successfully logged in!' });
+            res.json({ user, message: 'You have successfully logged in!' });
         });
     } catch (err) {
-        res.status(400).json({ message: 'No user account found.'});
+        res.status(400).json({ message: 'No matching user account found.'});
     }
 });
 
