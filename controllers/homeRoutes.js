@@ -5,9 +5,10 @@ router.get('/', async (req, res) => {
     try {
     const postContent = await Post.findAll({
         include: [User],
+      
     });
         const posts = postContent.map((post) => post.get({ plain: true }));
-        res.render('allPosts', { posts });
+        res.render('allposts', { posts });
     } catch (err) {
         res.status(500).json(err);
     }
