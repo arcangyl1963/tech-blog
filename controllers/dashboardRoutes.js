@@ -21,7 +21,7 @@ router.get('/', withAuth, async (req, res) => {
     }
   });
 router.get('/new', withAuth, (req, res) => {
-  res.render('newPost', {
+  res.render('newpost', {
     layout: 'dashboard',
   });
 });
@@ -30,7 +30,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     const postContent = await Post.findByPk(req.params.id);
     if (postContent) {
       const post = postContent.get({ plain: true });
-      res.render('editPost', {
+      res.render('editpost', {
         layout: 'dashboard',
         post,
       });
