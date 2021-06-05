@@ -30,6 +30,8 @@ The Third Triad Mojo Tech Blog utilizes the following technologies:
 
 [Usage](#usage)<br>
 
+[Heroku](#heroku)<br>
+
 [License](#license)<br>
 
 [Contributors](#contributors)<br>
@@ -113,12 +115,30 @@ You will be presented with the home screen.
 
 ![Third Triad Mojo Tech Blog Home screen](./images/TTMBlog_home.png)<br>
 
-If this is the first time launching the app, you will need to register as a user by clicking 'New User Registration' in the navbar.
+If this is the first time launching the app, you will need to register as a user by clicking 'New User Registration' in the navbar or on the 'Register here' link of the Login panel.
 
-![Third Triad Mojo Tech Blog New User](./)<br>
+![Third Triad Mojo Tech Blog New User Registration](./images/TTMBlog_register.png)<br>
 
-The blog site can be accessed from this Heroku Deployment link:
-(Link to be added once all functionality is completed)
+Once logged in the user's dashboard will display.
+
+![Third Triad Mojo Tech Blog User Dashboard](./images/TTMBlog_dashboard.png)<br>
+
+If the user has posted entries prior to the session, those will display in the dashboard list.
+
+![Third Triad Mojo Tech Blog Dashboard with Entries](./images/TTMBlog_dashboard_postlist.png)<br>
+
+Click the New Post button to enter a new post.
+
+![Third Triad Mojo Tech Blog New Post Entry](./images/TTMBlog_dashboard_newpost.png)<br>
+
+Click on a posts name to bring up the Post Editor.
+
+![Third Triad Mojo Tech Blog Edit Post](./images/TTMBlog_dashboard_editpost.png)<br>
+
+## Heroku:
+
+The Third Triad Mojo Tech Blog site can be accessed from this Heroku Deployment link:
+[Heroku app](https://third-triad-mojo-tech-blog.herokuapp.com/)
 
 ---
 
